@@ -23,15 +23,9 @@
 // $(window).resizeEnd(function (event) {
 //      // go nuts
 // });
-//
-//
-// noConflict
-// Relinquish jQuery resizeEnd's control of the "resizeEnd" Event/alias function.
-//
-//  $.fn.resizeEnd.noConflict();
 
-// Project Home - http://giuseppeg.github.io/resizeEnd-Event/
-// GitHub repo  - http://github.com/giuseppeg/resizeEnd-Event/
+// Project Home - http://giuseppeg.github.io/jQuery-resizeEnd/
+// GitHub repo  - http://github.com/giuseppeg/jQuery-resizeEnd/
 
 
 (function ($, window) {
