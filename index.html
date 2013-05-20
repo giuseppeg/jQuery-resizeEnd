@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery resizeEnd - A resizeEnd event for jQuery</title>
+
+        <meta name="viewport" content="width=device-width">
+
+        <meta name="description" content="A resizeEnd event for jQuery">
+
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <style>
+            html { font-size: 62.5%; }
+            body {
+                margin: 0;
+
+                font-family: 'Roboto Slab', serif;
+                font-size: 16px;
+                font-size: 1.6rem;
+                color: #111;
+            }
+
+            a { color: #111; font-weight: bold; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+
+            h2 { margin: 0; }
+
+            .header,
+            .header a {
+                color: #fff;
+                color: rgba(255, 255, 255, 0.98);
+                text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+            }
+
+            .header {
+                position: relative;
+
+                background-color: #E56177;
+                text-align: center;
+            }
+
+            .header:after {
+                content: "";
+
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                display: block;
+                width: 100%;
+                height: 5px;
+
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+
+            .dark,
+            .dark a {
+                color: #222;
+                color: rgba(0, 0, 0, 0.35);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+            }
+
+            .header h1,
+            .header p,
+            .content,
+            .footer {
+                width: 95%;
+                max-width: 480px;
+                max-width: 48rem;
+                margin: 0 auto;
+            }
+
+            .header,
+            .footer {
+                padding: 60px 0;
+                padding: 6rem 0;
+            }
+
+            .section {
+                margin-top: 60px;
+                margin-top: 6rem;
+            }
+
+            .content p:first-child { margin-top: 0; }
+
+            pre {
+                padding: 20px;
+                padding: 2rem;
+
+                border-bottom: 4px solid #ddd;
+                border-radius: 4px;
+
+                background-color: #f1f1f1;
+                background-color: rgba(0, 0, 0, 0.05);
+
+                word-break: break-word;
+            }
+
+            #description a {
+                position: absolute;
+                top: auto;
+                left: -9999%;
+            }
+
+            #description:hover a { position: static; }
+
+            .footer {
+                font-size: 13px;
+                font-size: 1.3rem;
+            }
+            .footer iframe {
+                display: inline-block;
+                zoom: 1;
+                *display: inline;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="header" role="banner">
+            <h1><a href="/">jQuery resizeEnd</a></h1>
+            <p>A resizeEnd event for jQuery.</p>
+        </div>
+
+        <div class="content" role="main">
+            <div id="description" class="section">
+                <p>jQuery resizeEnd defines a special event that is fired when the JavaScript "resize" event has finished.</p>
+                <p>It also defines an alias function named after the event name which binds an event handler to the "resizeEnd" event, or trigger that event on an element.</p>
+                <a href="#description">Link this section</a>
+            </div>
+
+            <div id="demo" class="section">
+                <h2 id="demo"><a href="#demo">Demo</a></h2>
+                <p>Try to resize this window, the background color of the header will change at resizeEnd.</p>
+            </div>
+
+            <div id="usage" class="section">
+                <h2><a href="#usage">Usage</a></h2>
+                <p id="usage-basic"><a href="#usage-basic">Basic usage</a></p>
+                <pre><code lang="javascript">$(window).on("resizeEnd", function (event) {
+  // go nuts
+});</code></pre>
+                <p id="usage-alias">or use its <a href="#usage-alias">alias function</a>:</p>
+                <pre><code lang="javascript">$(window).resizeEnd(function (event) {
+  // go nuts
+});</code></pre>
+            </div>
+
+            <div id="author" class="section">
+                <h2><a href="#author">Author</a></h2>
+                <p><a href="http://twitter.com/giuseppegurgone">@giuseppegurgone</a></p>
+            </div>
+
+            <div id="license" class="section">
+                <h2><a href="#license">License</a></h2>
+                <p>Copyright (c) 2013 Giuseppe Gurgone</p>
+                <p>This work is licensed for reuse under the MIT license. See the included <a href="LICENSE">LICENSE</a> file for details.</p>
+            </div>
+        </div>
+
+        <div class="footer" role="contentinfo">
+            Fork it on <a href="http://github.com/giuseppeg/jQuery-resizeEnd">GitHub</a> - <a href="https://twitter.com/share" class="twitter-share-button" data-text="jQuery resizeEnd - A resizeEnd event for #jQuery" data-via="giuseppegurgone" data-hashtags="RWD">Tweet</a>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            (function(a,b){var c={};c.eventName="resizeEnd",c.delay=250,c.poll=function(){var d=a(this),e=d.data(c.eventName);e.timeoutId&&b.clearTimeout(e.timeoutId),e.timeoutId=b.setTimeout(function(){d.trigger(c.eventName)},c.delay)},a.event.special[c.eventName]={setup:function(){var b=a(this);b.data(c.eventName,{}),b.on("resize",c.poll)},teardown:function(){var d=a(this),e=d.data(c.eventName);e.timeoutId&&b.clearTimeout(e.timeoutId),d.removeData(c.eventName)}},a.fn[c.eventName]=function(a,b){return arguments.length>0?this.on(c.eventName,null,a,b):this.trigger(c.eventName)}})(jQuery,this);
+
+            (function ($) {
+                $(function () {
+                    var $test = $('.header');
+
+                    $(window).on("resizeEnd", function () {
+                        var bgcolor = '#' + Math.floor(Math.random()*16777215).toString(16),
+                            bgColorIsDark = false;
+
+                        $test.css("background-color", bgcolor);
+
+                        try {
+                            bgColorIsDark = isDark(bgcolor);
+                        } catch (e) { }
+
+                        if (bgColorIsDark) {
+                            $test.removeClass("dark");
+                        } else {
+                            $test.addClass("dark");
+                        }
+                    });
+                });
+
+                function isDark(a,b){var c,d,e=0;if("string"!=typeof a||!/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(a))throw Error("invalid color "+a);if("number"!=typeof b&&(b=381),a=a.slice(1),c=a.length/3,d=a.match(RegExp(".{1,"+c+"}","g")),!d)return"#"+a;for(var g,f=0;g=d[f];f+=1)1==c&&(g+=g),e+=parseInt(g,16);return b>=e}
+            }(jQuery));
+
+            var _gaq=[['_setAccount','UA-9670480-6'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
+    </body>
+</html>
