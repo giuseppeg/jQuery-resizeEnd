@@ -35,7 +35,7 @@
             .header {
                 position: relative;
 
-                background-color: #E56177;
+                background-color: #E56177; /* #52B96C */
                 text-align: center;
             }
 
@@ -53,9 +53,52 @@
                 background-color: rgba(0, 0, 0, 0.3);
             }
 
+            .header .actions { margin-top: 1em; }
+
+            .header .download a {
+
+                padding: 20px;
+                padding: 2rem;
+
+                border-radius: 4px;
+
+                background-color: #f1f1f1;
+                background-color: rgba(0, 0, 0, 0.35);
+
+                color: #eee;
+
+                text-shadow: none;
+            }
+
+            .header .download a:hover {
+                background-color: #fff;
+                background-color: rgba(0, 0, 0, 0.30);
+            }
+
+            .header .download a:active {
+                background-color: #eee;
+                background-color: rgba(0, 0, 0, 0.45);
+            }
+
+            .download a {
+                display: inline-block;
+            }
+
+            .download a:hover { text-decoration: none; }
+
+            .fork {
+                margin-top: 0.5em;
+
+                font-size: 13px;
+                font-size: 1.3rem;
+            }
+
+            .download,
+            .fork { display: block; }
+
             .dark,
             .dark a {
-                color: #222;
+                color: #444;
                 color: rgba(0, 0, 0, 0.35);
                 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
             }
@@ -121,6 +164,14 @@
         <div class="header" role="banner">
             <h1><a href="/">jQuery resizeEnd</a></h1>
             <p>A resizeEnd event for jQuery.</p>
+            <p class="actions">
+                <span class="download">
+                    <a href="http://github.com/giuseppeg/jQuery-resizeEnd/archive/master.zip">Download v1.0.0</a>
+                </span>
+                <span class="fork">
+                    Fork it on <a href="http://github.com/giuseppeg/jQuery-resizeEnd">GitHub</a>
+                </span>
+            </p>
         </div>
 
         <div class="content" role="main">
@@ -145,6 +196,19 @@
                 <pre><code lang="javascript">$(window).resizeEnd(function (event) {
   // go nuts
 });</code></pre>
+            </div>
+
+            <div id="get" class="section">
+                <h2><a href="#get">Get it!</a></h2>
+
+                <p class="actions">
+                    <span class="download">
+                        Download <a href="http://github.com/giuseppeg/jQuery-resizeEnd/archive/master.zip">jQuery resizeEnd v1.0.0</a>
+                    </span>
+                    <span class="fork">
+                        Fork it on <a href="http://github.com/giuseppeg/jQuery-resizeEnd">GitHub</a>
+                    </span>
+                </p>
             </div>
 
             <div id="author" class="section">
