@@ -70,7 +70,7 @@
             var elem = $(this);
             elem.data(jqre.eventName, {});
 
-            elem.on("resize.resizeEnd", jqre.poll);
+            elem.on("resize", jqre.poll);
         },
 
         // teardown:
@@ -83,9 +83,8 @@
                 window.clearTimeout(data.timeoutId);
             }
 
-            elem.off("resize.resizeEnd");
-
             elem.removeData(jqre.eventName);
+            elem.off("resize", jqre.poll);
         }
     };
 
