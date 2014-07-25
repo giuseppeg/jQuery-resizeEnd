@@ -84,6 +84,7 @@
             }
 
             elem.removeData(jqre.eventName);
+            elem.off("resize", jqre.poll);
         }
     };
 
