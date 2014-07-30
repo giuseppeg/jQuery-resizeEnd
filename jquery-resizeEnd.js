@@ -1,4 +1,4 @@
-// jQuery resizeEnd Event v1.0.0
+// jQuery resizeEnd Event v1.0.1
 // Copyright (c) 2013 Giuseppe Gurgone
 
 // This work is licensed for reuse under the MIT license.
@@ -84,6 +84,7 @@
             }
 
             elem.removeData(jqre.eventName);
+            elem.off("resize", jqre.poll);
         }
     };
 
