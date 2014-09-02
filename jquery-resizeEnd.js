@@ -29,11 +29,13 @@
 
 
 (function ($, window) {
-    var jqre = {};
-
+    var jqre = {},
+        lastWindowHeight = $(window).height(),
+        lastWindowWidth = $(window).width();
     // Settings
     // eventName: the special event name.
     jqre.eventName = "resizeEnd";
+    
 
     // Settings
     // delay: The numeric interval (in milliseconds)
@@ -56,7 +58,12 @@
         // triggers the special event
         // after jqre.delay milliseconds of delay
         data.timeoutId = window.setTimeout(function () {
-            elem.trigger(jqre.eventName);
+            if($(window).height()!=lastWindowHeight || $(window).width()!=lastWindowWidth){
+                lastWindowHeight = $(window).height();
+                lastWindowWidth = $(window).width();
+                
+                elem.trigger(jqre.eventName);
+            }
         }, jqre.delay);
     };
 
